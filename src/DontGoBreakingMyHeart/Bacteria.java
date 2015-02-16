@@ -7,12 +7,16 @@ import info.gridworld.grid.Location;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Bacteria extends Actor
-{
+public class Bacteria extends Actor {
 
     public Bacteria()
     {
-        setColor(null);
+        setColor(Color.BLACK);
+    }
+
+    public Bacteria(Color bacteriaColor)
+    {
+        setColor(bacteriaColor);
     }
 
     public void act()
@@ -29,7 +33,7 @@ public class Bacteria extends Actor
 
     public void move()
     {
-        this.setDirection(this.getLocation().getDirectionToward(findHeart()));
+        if(findHeart()!=null)this.setDirection(this.getLocation().getDirectionToward(findHeart()));
         Grid<Actor> gr = getGrid();
         if (gr == null)
             return;
