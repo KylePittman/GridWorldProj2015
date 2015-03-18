@@ -88,17 +88,36 @@ public class BlusterCritter extends Critter {
         int red = (int) (c.getRed() * (1 - CHANGING_FACTOR));
         int green = (int) (c.getGreen() * (1 - CHANGING_FACTOR));
         int blue = (int) (c.getBlue() * (1 - CHANGING_FACTOR));
+        System.out.println("Red: " + red + "\nGreen: " + green + "\nBlue: " + blue);
         setColor(new Color(red, green, blue));
-
     }
 
     private void brighten()
     {
         Color c = getColor();
         if((int) (c.getRed() * (1 + CHANGING_FACTOR)) > 255 || (int) (c.getGreen() * (1 + CHANGING_FACTOR)) > 255 || (int) (c.getBlue() * (1 + CHANGING_FACTOR)) > 255) return;
-        int red = (int) (c.getRed() * (1 + CHANGING_FACTOR));
-        int green = (int) (c.getGreen() * (1 + CHANGING_FACTOR));
-        int blue = (int) (c.getBlue() * (1 + CHANGING_FACTOR));
+
+        int red = c.getRed();
+
+        if(red + 1 < (int) (c.getBlue() * (1 + CHANGING_FACTOR)))
+            red = (int) (c.getBlue() * (1 + CHANGING_FACTOR));
+        else
+            red = c.getBlue() + 1;
+
+        int green = c.getGreen();
+
+        if(green + 1 < (int) (c.getBlue() * (1 + CHANGING_FACTOR)))
+            green = (int) (c.getBlue() * (1 + CHANGING_FACTOR));
+        else
+            green = c.getBlue() + 1;
+        int blue = c.getBlue();
+
+        if(blue + 1 < (int) (c.getBlue() * (1 + CHANGING_FACTOR)))
+            blue = (int) (c.getBlue() * (1 + CHANGING_FACTOR));
+        else
+            blue = c.getBlue() + 1;
+
+        System.out.println("Red: " + red + "\nGreen: " + green + "\nBlue: " + blue);
         setColor(new Color(red, green, blue));
 
     }
