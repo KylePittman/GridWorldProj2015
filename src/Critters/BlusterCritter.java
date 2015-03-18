@@ -88,7 +88,6 @@ public class BlusterCritter extends Critter {
         int red = (int) (c.getRed() * (1 - CHANGING_FACTOR));
         int green = (int) (c.getGreen() * (1 - CHANGING_FACTOR));
         int blue = (int) (c.getBlue() * (1 - CHANGING_FACTOR));
-        System.out.println("Red: " + red + "\nGreen: " + green + "\nBlue: " + blue);
         setColor(new Color(red, green, blue));
     }
 
@@ -117,7 +116,7 @@ public class BlusterCritter extends Critter {
         else
             blue = c.getBlue() + 1;
 
-        System.out.println("Red: " + red + "\nGreen: " + green + "\nBlue: " + blue);
+
         setColor(new Color(red, green, blue));
 
     }

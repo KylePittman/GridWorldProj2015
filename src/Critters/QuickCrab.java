@@ -18,18 +18,12 @@ public class QuickCrab extends CrabCritter{
             if (getGrid().get(loc) == null)
             {
                 locs.add(loc);
-                System.out.println(loc.toString() + "     ///");
-                System.out.println(locs.get(locs.size()-1).getAdjacentLocation(getLocation().getDirectionToward(loc)).toString());
                 if (getGrid().isValid(locs.get(locs.size()-1).getAdjacentLocation(getLocation().getDirectionToward(loc))) && getGrid().get(locs.get(locs.size()-1).getAdjacentLocation(getLocation().getDirectionToward(loc))) == null)
                 {
-                    System.out.println("got here");
                     locs.add(locs.get(locs.size() - 1).getAdjacentLocation(getLocation().getDirectionToward(loc)));
                     locs.remove(locs.size()-2);
                 }
             }
-        for(Location loc: locs){
-            System.out.println(loc.toString());
-        }
         return locs;
     }
 }
